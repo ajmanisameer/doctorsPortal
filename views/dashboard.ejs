@@ -1,0 +1,17 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome Dr. <%= user.name %></p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+
+
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <div class="field">
+        <label for="image">Image Upload</label>
+        <input type="file" name="singleFile" id="image">
+    </div>
+    <!-- <input type="submit" class="btn" value="Save"> -->
+    <button value="save" class="btn btn-primary" type="submit">Upload</button>
+    <button  class="btn btn-primary" type="button">Cancel</button>
+
+</form>
