@@ -3,6 +3,7 @@ AWS = require('aws-sdk'),
 fs = require('fs'),
 path = require('path'),
 flow = require('flow');
+// const config = require('../config.json')
 
 configPath = path.join(__dirname, '..', "config.json");
 
@@ -39,3 +40,50 @@ flow.exec(
         res.send({msg: "Uploaded"});
     });
 };
+
+
+(async function(){
+    try{
+
+        AWS.config.setPromisesDependency();
+
+        AWS.config.update({
+            accessKeyId: "AKIAIT63T5EPJ4OZWALA",
+            secretAccessKey: "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",
+            region: 'us-east-1'
+        });
+
+        const s3 = new AWS.S3();
+        const response = await s3.listObjectsV2({
+            Bucket: 'medical-images', 
+        }).promise();
+
+        console.log(response);
+
+    } catch(e){
+        console.log('our error', e)
+    }
+
+        debugger;
+    
+})();
+
+// var awsConfig = require('aws-config');
+// // var AWS = require('aws-sdk');
+
+// router.get('/export', function(req, res, next) {
+//     var file = 'df.csv';
+//     console.log('Trying to download file', fileKey);
+
+//     var s3 = new AWS.S3({});
+
+//     var options = {
+//         Bucket: 'your-bucket-name',
+//         Key: file,
+//     };
+
+//     s3.getObject(options, function(err, data) {
+//       res.attachment(file);
+//       res.send(data.Body);
+//   });
+// });
