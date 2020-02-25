@@ -3,7 +3,7 @@ AWS = require('aws-sdk'),
 fs = require('fs'),
 path = require('path'),
 flow = require('flow');
-const config = require('../config.json')
+// const config = require('../config.json')
 
 configPath = path.join(__dirname, '..', "config.json");
 
@@ -48,9 +48,9 @@ flow.exec(
         AWS.config.setPromisesDependency();
 
         AWS.config.update({
-            accessKeyId: "AKIAJLK676NUQALKFALQ",
-            secretAccessKey: "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",
-            region: 'us-east-2'
+            accessKeyId: "AKIAIT63T5EPJ4OZWALA",
+            secretAccessKey: "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",
+            region: 'us-east-1'
         });
 
         const s3 = new AWS.S3();
